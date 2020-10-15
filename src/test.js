@@ -61,12 +61,15 @@ function init() {
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color( 0xffffff );
 	
-	let dirLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
-	dirLight.castShadow = true;
-	dirLight.position.set(3,7,5);	
-	scene.add(dirLight);
+	let dirLight_1 = new THREE.DirectionalLight( 0xffffff, 0.4 );
+	dirLight_1.castShadow = true;
+	dirLight_1.position.set(3,7,5);	
+	scene.add(dirLight_1);
 	
-	infProg.dirLight = dirLight;
+	let dirLight_2 = new THREE.DirectionalLight( 0xffffff, 0.4 );
+	dirLight_2.castShadow = true;
+	dirLight_2.position.set(-3,7,-5);	
+	scene.add(dirLight_2);	
 	
 	var gridHelper = new THREE.GridHelper( 10, 10 );
 	scene.add( gridHelper );	
@@ -179,6 +182,8 @@ function init() {
 let inputFbx = document.body.querySelector('#load_obj_1');
 inputFbx.addEventListener( 'change', readURL_2, false );
 
+
+
 function readURL_2(e) 
 {
 	if (this.files[0]) 
@@ -193,6 +198,9 @@ function readURL_2(e)
 	};
 };
 
+let div_triangles_1 = document.body.querySelector('[nameId="div_triangles_1"]');
+let div_countMesh_1 = document.body.querySelector('[nameId="div_countMesh_1"]');
+let div_countMaterial_1 = document.body.querySelector('[nameId="div_countMaterial_1"]');
 
 function loadFbx(params)
 {
@@ -204,6 +212,30 @@ function loadFbx(params)
 	render();
 
 	infProg.scene = obj;
+
+	let count = {g: 0, m: 0};
+
+	obj.traverse( function ( child ) 
+	{
+		if (child.geometry) 
+		{ 
+			count.g += 1; 
+		}
+
+		if (child.material)
+		{
+			let materialArray = [];
+		
+			if(child.material instanceof Array) { materialArray = child.material; }
+			else { materialArray = [child.material]; }
+			
+			count.m += materialArray.length;
+		}
+	});	
+
+	div_triangles_1.innerText = 'triangles: ' +renderer.info.render.triangles;
+	div_countMesh_1.innerText = 'mesh: ' +count.g;	
+	div_countMaterial_1.innerText = 'material: ' +count.m;
 
 	if(1==2)
 	{

@@ -25,6 +25,21 @@
 
 		</div>
 
+		<div style="position: absolute; left: 50px; bottom: 80px; z-index: 1">				
+
+			<div nameId='div_triangles_1' style="width: 160px; border:solid 1px #b3b3b3; background: #fff; text-align:center; font-family: arial,sans-serif; font-size: 15px; color: #666;">
+				triangles:						
+			</div>
+
+			<div nameId='div_countMesh_1' style="width: 160px; border:solid 1px #b3b3b3; background: #fff; text-align:center; font-family: arial,sans-serif; font-size: 15px; color: #666;">
+				mesh:						
+			</div>
+
+			<div nameId='div_countMaterial_1' style="width: 160px; border:solid 1px #b3b3b3; background: #fff; text-align:center; font-family: arial,sans-serif; font-size: 15px; color: #666;">
+				material:						
+			</div>						
+		</div>
+
 	</div>
 	
 					
