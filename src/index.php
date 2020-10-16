@@ -37,7 +37,12 @@
 
 			<div nameId='div_countMaterial_1' style="width: 160px; border:solid 1px #b3b3b3; background: #fff; text-align:center; font-family: arial,sans-serif; font-size: 15px; color: #666;">
 				material:						
-			</div>						
+			</div>	
+			
+			<div nameId='div_objSize_1' style="width: 160px; border:solid 1px #b3b3b3; background: #fff; text-align:center; font-family: arial,sans-serif; font-size: 15px; color: #666;">
+				size:						
+			</div>	
+
 		</div>
 
 	</div>
